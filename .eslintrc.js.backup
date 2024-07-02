@@ -1,0 +1,31 @@
+module.exports = {
+  parser: 'babel-eslint',
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
+  ],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx'],
+      },
+    },
+  },
+  rules: {
+    'import/extensions': ['error', 'ignorePackages', {
+      js: 'never',
+      jsx: 'never',
+    }],
+    'react/jsx-no-constructed-context-values': 'warn',
+    'no-shadow': 'warn',
+    'comma-dangle': ['error', 'always-multiline'],
+  },
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+  },
+};
