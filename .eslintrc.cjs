@@ -7,7 +7,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:prettier/recommended'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -18,11 +17,9 @@ module.exports = {
   },
   plugins: [
     'react',
-    'prettier'
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'prettier/prettier': 'error'
   },
   settings: {
     react: {

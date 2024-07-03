@@ -4,7 +4,7 @@
   "scripts": {
     "start": "meteor run --exclude-archs web.browser.legacy,web.cordova",
     "quave-eslint": "eslint .",
-    "quave-prettier": "prettier --write \"**/*.js\"",
+    "quave-prettier": "prettier --config ./prettier.config.cjs --write \"**/*.js\"",
     "quave-check": "npm run quave-eslint && npm run quave-prettier",
     "build:css": "tailwindcss -i ./client/input.css -o ./client/output.css",
     "prettier": "prettier --config ./prettier.config.cjs --write \"**/*.js\""
@@ -34,7 +34,6 @@
     "eslint-define-config": "^1.0.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "lefthook": "^1.6.18",
