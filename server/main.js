@@ -66,5 +66,23 @@ Meteor.startup(async () => {
         throw new Meteor.Error('500', 'Internal server error', error);
       }
     },
+    async resetPerson(personId) {
+      try {
+        const result = await People.updateAsync(personId, {
+          $set: { checkInDate: null, checkOutDate: null },
+        });
+        if (result) {
+          logger.info(`Person reset: ${personId}`);
+        } else {
+          throw new Meteor.Error(
+            'update-failed',
+            'Failed to reset person'
+          );
+        }
+      } catch (error) {
+        logger.error('Error in resetPerson:', error);
+        throw new Meteor.Error('500', 'Internal server error', error);
+      }
+    },
   });
 });

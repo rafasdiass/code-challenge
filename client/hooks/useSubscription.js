@@ -1,4 +1,3 @@
-// client/hooks/useSubscription.js
 import { Meteor } from 'meteor/meteor';
 import { useEffect, useState } from 'react';
 
@@ -6,6 +5,7 @@ const useSubscription = (publication, ...args) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const handle = Meteor.subscribe(publication, ...args, {
       onReady: () => setLoading(false),
       onStop: () => setLoading(false),
@@ -13,11 +13,10 @@ const useSubscription = (publication, ...args) => {
 
     return () => {
       handle.stop();
-      setLoading(true);
     };
   }, [publication, ...args]);
 
-  return [loading];
+  return loading;
 };
 
 export default useSubscription;

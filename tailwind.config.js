@@ -1,6 +1,7 @@
+/* eslint-env node */
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
- 
+  purge: ['./client/**/*.html', './client/**/*.jsx', './client/**/*.js'],
+  darkMode: false, // ou 'media' ou 'class'
   theme: {
     extend: {},
   },

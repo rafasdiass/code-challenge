@@ -1,4 +1,3 @@
-// client/main.js
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { createRoot } from 'react-dom/client';

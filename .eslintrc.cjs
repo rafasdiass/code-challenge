@@ -2,10 +2,12 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:prettier/recommended'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -16,13 +18,15 @@ module.exports = {
   },
   plugins: [
     'react',
+    'prettier'
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'prettier/prettier': 'error'
   },
   settings: {
     react: {
-      version: '18.3.1',
+      version: 'detect',
     },
   },
 };

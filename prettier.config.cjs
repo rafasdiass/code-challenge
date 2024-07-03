@@ -1,4 +1,7 @@
-module.exports = {
-    ...require('@quave/eslint-config-quave/prettier.config')
-  };
-  
+/** @type {import('prettier').Config} */
+const config = {
+  plugins: [require('prettier-plugin-tailwindcss')],
+  tailwindConfig: './tailwind.config.js',
+};
+
+module.exports = config;

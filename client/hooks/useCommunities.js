@@ -1,21 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Tracker } from 'meteor/tracker';
 import { Communities } from '../../communities/communities.js';
-import { Meteor } from 'meteor/meteor';
+import useSubscription from './useSubscription';
 
 const useCommunities = () => {
   const [data, setData] = useState([]);
+  const loading = useSubscription('communities');
 
   useEffect(() => {
     const computation = Tracker.autorun(() => {
-      Meteor.subscribe('communities');
-      setData(Communities.find().fetch());
+      if (!loading) {
+        setData(Communities.find().fetch());
+      }
     });
 
     return () => {
       computation.stop();
     };
-  }, []);
+  }, [loading]);
 
   return data;
 };

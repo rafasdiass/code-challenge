@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { People } from '../people/people.js';
 import { logger } from '../infra/logger.js';
 
-
 Meteor.methods({
   async checkInPerson(personId) {
     try {
